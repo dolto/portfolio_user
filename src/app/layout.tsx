@@ -8,11 +8,11 @@ function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
             <body>
-                <header>
-                    <a href="">주인장 정보</a>
+                <header className="main-header">
+                    <h1><a href="">주인장 정보</a></h1>
                     <div>
-                        <a href="/Resume">Resume</a>
-                        <a href="/Guest">GuestBook</a>
+                        <a href="/resume">Resume</a>
+                        <a href="/guest">GuestBook</a>
                     </div>
                 </header>
                 {children}
