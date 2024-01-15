@@ -8,64 +8,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
-
-
-.banner-monitor{
-    position: relative;
-    background: aqua;
+.banner>article{
+    background: #EB6440;
     max-width: 75rem;
     min-width: 50rem;
     width: 75%;
     height: 30rem;
-    overflow: hidden;
-}
-.banner-container{
-    display: flex;
-}
-.banner-container>*{
-    width: 1000px;
-    height: 100%;
 }
 
 
-.banner-side{
-    position: absolute;
-    width: 3rem;
-    height: 3rem;
-    top: calc(50% - 1.5rem);
-    background: rgba(0, 0, 0, 0%);
-    border: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    transition: 0.3s ease;
-}
-.banner-side:first-child{
-    left: 0;
-}
-.banner-side:last-child{
-    right: 0;
-}
-.banner-side-left{
-    width: 0;
-    height: 100%;
-
-    border: 2px solid var(--c4);
-    border-radius: 2px;
-    transform : rotate(45deg) scaleY(1.5);
-}
-.banner-side-right{
-    width: 0;
-    height: 100%;
-
-    border: 2px solid var(--c4);
-    border-radius: 2px;
-    transform : rotate(135deg) scaleY(1.5);
-}
-.banner-side:hover{
-    filter: brightness(150%);
-}

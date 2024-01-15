@@ -1,29 +1,23 @@
 'use client'
 import "./banner.css"
-import React from "react";
+import "./swiper.css"
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-function Banner({children} : {children:React.ReactNode}){
-	console.log(children.length);
-	// let a = document.getElementsByClassName("banner-monitor")[0];
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import {Navigation, Pagination} from "swiper/modules";
 
-
-
+function Banner(){
 	return (
-		<section className="banner-monitor">
-			<article className="banner-container">
-				{children}
-			</article>
-
-			<button className="banner-side">
-				<div className="banner-side-left"></div>
-				<div className="banner-side-right"></div>
-			</button>
-			<button className="banner-side">
-				<div className="banner-side-right"></div>
-				<div className="banner-side-left"></div>
-			</button>
+		<section className="banner">
+			<Swiper slidesPerView={1} spaceBetween={30} loop={true} pagination={{clickable:true}} navigation={true} modules={[Pagination, Navigation]} className="mySwiper">
+				<SwiperSlide>1</SwiperSlide>
+				<SwiperSlide>2</SwiperSlide>
+				<SwiperSlide>3</SwiperSlide>
+			</Swiper>
 		</section>
 	)
 }
 
-export default Banner
+export default Banner;
