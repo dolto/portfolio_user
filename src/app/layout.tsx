@@ -10,10 +10,11 @@ function RootLayout({ children }: { children: React.ReactNode }) {
             <body>
                 <header className="main-header">
                     <h1><a href="">주인장 정보</a></h1>
-                    <div>
+                    <div className="main-header-section-line"></div>
+                    <nav>
                         <a href="/resume">Resume</a>
                         <a href="/guest">GuestBook</a>
-                    </div>
+                    </nav>
                 </header>
                 {children}
             </body>
