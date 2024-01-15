@@ -1,15 +1,12 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
-*{
-    box-sizing: border-box;
-}
+@import "defaultColor.css";
 .main-header{
     display: grid;
     grid-template-columns: 200px 1fr;
 }
-
 .main-header>h1{
     text-align: center;
     text-decoration: none;
-    color: #497174;
+    color: var(--c3);
     font-weight: bolder;
 }
