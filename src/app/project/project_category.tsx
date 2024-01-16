@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image';
 import "./project.css";
 
 interface Prop{
@@ -43,8 +44,21 @@ export default async function Project_category(props: Prop){
                               langs_slecets.filter(s => !(lang[0] == s)) : langs_slecets.concat(lang[0])
                   )}&skills_slects=${JSON.stringify(skills_slects)}`} key={lang[0]}>
                       {langs_slecets.includes(lang[0])?
-                          <img className={'project_category_icon project_icon_selected'} src={lang[1]}/>:
-                          <img className={'project_category_icon'} src={lang[1]}/>}
+                          <nav className={'project_category_icon project_icon_selected'}>
+                            <Image
+                                className={'project_category_icon_img'}
+                                src={lang[1]}
+                                alt={''}
+                                width={300}
+                                height={300}/>
+                          </nav>:
+                          <nav className={'project_category_icon'}>
+                              <Image className={'project_category_icon_img'}
+                                     src={lang[1]}
+                                     alt={''}
+                                     width={300}
+                                     height={300}/>
+                          </nav>}
                   </Link>)})
               }
           </nav>
@@ -58,8 +72,21 @@ export default async function Project_category(props: Prop){
                               skills_slects.filter(s => !(skill[0] == s)) : skills_slects.concat(skill[0])
                   )}`} key={skill[0]}>
                       {skills_slects.includes(skill[0])?
-                          <img className={'project_category_icon project_icon_selected'} src={skill[1]}/>:
-                          <img className={'project_category_icon'} src={skill[1]}/>}
+                          <nav className={'project_category_icon project_icon_selected'}>
+                              <Image
+                                  className={'project_category_icon_img'}
+                                  src={skill[1]}
+                                  alt={''}
+                                  width={300}
+                                  height={300}/>
+                          </nav>:
+                          <nav className={'project_category_icon'}>
+                              <Image className={'project_category_icon_img'}
+                                     src={skill[1]}
+                                     alt={''}
+                                     width={300}
+                                     height={300}/>
+                          </nav>}
                   </Link>)}
           </nav>
           <i className="fas fa-duotone fa-circle-arrow-right fa-3x"></i>

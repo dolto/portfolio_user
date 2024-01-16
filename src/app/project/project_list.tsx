@@ -1,4 +1,5 @@
 import {ContentMode, PostCollection, PostContent } from './interface';
+import Image from 'next/image';
 import './project.css';
 
 interface Props{
@@ -31,14 +32,28 @@ export default function Project_list (props: Props){
     })
 
     return(
-        <article className={'project_list_containor'}>
+        <article className={'project_list_container'}>
             {data.map(pj => {
                 const frontImg =
                     pj.contents.find(f => f.mode == ContentMode.img) as PostContent;
                 return (<nav className={'project_element'} key={pj.id}>
-                    <img className={'project_front_img'} src={frontImg.content}/>
-                    <article className={'project_front_name'}>
-                        {pj.name}
+                    <Image alt={'사진이 없습니다.'}
+                           className={'project_front_img'}
+                           src={frontImg.content}
+                           width={720}
+                           height={720}/>
+                    <article className={'project_front_text'}>
+                        <nav className={'project_title'}>
+                            {pj.name}
+                        </nav>
+                        <hr className={'project_element_hr'}/>
+                        <nav className={'project_category'}>
+                            {pj.category.map(c =>
+                                <span>{' | '+c.replace('Id',' | ')}</span> //이건 id에서 이름을 구하는 식으로 바꿔야함
+                            )}<br/>{pj.skill_id.map(c =>
+                            <span>{' | '+c.replace('Id',' | ')}</span> //이건 id에서 이름을 구하는 식으로 바꿔야함
+                        )}
+                        </nav>
                     </article>
                 </nav>);
             })}
