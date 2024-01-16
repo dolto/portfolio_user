@@ -81,7 +81,7 @@ function Project(props: Prop) {
 			}}></Project_category>
 			<Project_list data={project_data}
 			  selectedLang={props.searchParams.langs_slecets == undefined ?
-				[]:(JSON.parse(props.searchParams.langs_slecets) as string[]).map(s=>s+'Id')}
+				[]:(JSON.parse(props.searchParams.langs_slecets) as string[]).map(s=>s+'Id')} //임시로 Id값을 불러오는 느낌으로
 			selectedSkill={props.searchParams.skills_slects == undefined ?
 				[]:(JSON.parse(props.searchParams.skills_slects) as string[]).map(s=>s+'Id')}></Project_list>
 		</section>
