@@ -70,7 +70,8 @@ interface Prop{
 	}
 }
 function Project(props: Prop) {
-	console.log(props)
+	console.log(process.env.MongoDB_URI)
+
 	return (
 		<section>
 			<Project_category searchParams={{
