@@ -1,10 +1,11 @@
-import {LangCollection, PostCollection, SkillCollection} from './interface';
+import {LangCollection, ProjectCollection, SkillCollection} from './interface';
 import Image from 'next/image';
 import './project.css';
 import { connectDB } from '../../../Util/MongoDB';
+import Link from 'next/link';
 
 interface Props{
-    data: PostCollection[],
+    data: ProjectCollection[],
     selectedLang: string[],
     selectedSkill: string[]
 }
@@ -40,7 +41,11 @@ export default async function Project_list(props: Props) {
         <article className={'project_list_container'}>
             {data.map(pj => {
                 const frontImg = pj.thumbnail;
-                return (<nav className={'project_element'} key={pj._id.toString()}>
+                return (<Link className={'project_element'}
+                              key={pj._id.toString()}
+                              href={`project?langs_slecets=${
+                                  JSON.stringify(props.selectedLang)}&skills_slects=${JSON.stringify(props.selectedSkill)
+                              }&project_id=${pj._id.toString()}`}>
                     <Image alt={'사진이 없습니다.'}
                            className={'project_front_img'}
                            src={frontImg}
@@ -53,13 +58,13 @@ export default async function Project_list(props: Props) {
                         <hr className={'project_element_hr'}/>
                         <nav className={'project_category'}>
                             {pj.lang_id.map(c =>
-                                <span>{' | ' + langs_data.find(l => l._id.toString() === c).name+' | '}</span> //이건 id에서 이름을 구하는 식으로 바꿔야함
+                                <span>{' | ' + (langs_data.find(l => l._id.toString() === c) as LangCollection).name+' | '}</span> //이건 id에서 이름을 구하는 식으로 바꿔야함
                             )}<br/>{pj.skill_id.map(c =>
-                            <span>{' | ' +skill_data.find(s => s._id.toString() === c).name+' | '}</span> //이건 id에서 이름을 구하는 식으로 바꿔야함
+                            <span>{' | ' + (skill_data.find(s => s._id.toString() === c) as SkillCollection).name+' | '}</span> //이건 id에서 이름을 구하는 식으로 바꿔야함
                         )}
                         </nav>
                     </article>
-                </nav>);
+                </Link>);
             })}
         </article>
     );

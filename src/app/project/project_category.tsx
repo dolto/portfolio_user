@@ -33,7 +33,7 @@ export default async function Project_category(props: Prop){
               {langsDB.map(lang =>{
                   return( <Link href={`project?langs_slecets=${JSON.stringify(
                       langs_slecets.length == langsDB.length ?
-                          lang._id.toString() : langs_slecets.includes(lang._id.toString()) ?
+                          [lang._id.toString()] : langs_slecets.includes(lang._id.toString()) ?
                               langs_slecets.filter(s => !(lang._id.toString() == s)) : langs_slecets.concat(lang._id.toString())
                   )}&skills_slects=${JSON.stringify(skills_slects)}`} key={lang._id.toString()}>
                       {langs_slecets.includes(lang._id.toString())?
@@ -61,7 +61,7 @@ export default async function Project_category(props: Prop){
               {skillDB.map(skill =>
                   <Link href={`project?langs_slecets=${JSON.stringify(langs_slecets)}&skills_slects=${JSON.stringify(
                       skills_slects.length == skillDB.length ?
-                          skill._id.toString() : skills_slects.includes(skill._id.toString()) ? 
+                          [skill._id.toString()] : skills_slects.includes(skill._id.toString()) ? 
                               skills_slects.filter(s => !(skill._id.toString() == s)) : skills_slects.concat(skill._id.toString())
                   )}`} key={skill._id.toString()}>
                       {skills_slects.includes(skill._id.toString())?

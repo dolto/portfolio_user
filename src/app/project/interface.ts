@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb"
 
-interface PostCollection {
+interface ProjectCollection {
     _id: ObjectId,
     lang_id: string[],
     skill_id: string[],
@@ -17,4 +17,4 @@ interface SkillCollection extends LangCollection{
     description: string,
     level: number
 }
-export type {PostCollection, LangCollection, SkillCollection }
+export type {ProjectCollection, LangCollection, SkillCollection }
