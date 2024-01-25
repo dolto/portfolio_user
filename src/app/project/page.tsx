@@ -1,90 +1,37 @@
-import {ContentMode, PostCollection } from "./interface";
+import { connectDB } from "../../../Util/MongoDB";
+import {ProjectCollection } from "./interface";
 import Project_category from "./project_category";
 import Project_list from "./project_list";
-
-const langs = [
-    'Java',
-    'Kotlin',
-    'Rust',
-]
-const skills = [
-	'Spring',
-    'Spring Boot',
-    'Bevy',
-]
-const project_data: PostCollection[] = [
-	{
-		id:'0',
-		category: ['JavaId','KotlinId'],
-		skill_id: ['SpringId'],
-		contents: [
-			{
-				mode:ContentMode.img,
-				content:'https://raw.githubusercontent.com/dolto/IBA_Cocktail_recipe_API/main/Cocktail/Alejandro.webp'
-			}
-		],
-		name: '스프링으로 시작한 포트폴리오 사이트'
-	},
-	{
-		id:'1',
-		category: ['RustId'],
-		skill_id: ['BevyId'],
-		contents: [
-			{
-				mode:ContentMode.img,
-				content:'https://raw.githubusercontent.com/dolto/IBA_Cocktail_recipe_API/main/Cocktail/Alejandro.webp'
-			}
-		],
-		name: '러스트로 시작하는 게임개발'
-	},
-	{
-		id:'2',
-		category: ['JavaId','KotlinId'],
-		skill_id: ['Spring BootId'],
-		contents: [
-			{
-				mode:ContentMode.img,
-				content:'https://raw.githubusercontent.com/dolto/IBA_Cocktail_recipe_API/main/Cocktail/Alejandro.webp'
-			}
-		],
-		name: '스프링부트로 시작한 포트폴리오 사이트'
-	},
-	{
-		id:'3',
-		category: ['KotlinId'],
-		skill_id: ['SpringId'],
-		contents: [
-			{
-				mode:ContentMode.img,
-				content:'https://raw.githubusercontent.com/dolto/IBA_Cocktail_recipe_API/main/Cocktail/Alejandro.webp'
-			}
-		],
-		name: '스프링부트로 시작한 코틀린 포트폴리오 사이트'
-	}
-]
+import ProjectViewer from "./project_viewer";
 
 interface Prop{
 	searchParams: {
 		langs_slecets: string,
-		skills_slects: string
+		skills_slects: string,
+		project_id: string | undefined
 	}
 }
-function Project(props: Prop) {
-	console.log(process.env.MongoDB_URI)
-
+async function Project(props: Prop) {
+	const client = await connectDB;
+	const db = client.db('folio');
+	const project_data = await db.collection<ProjectCollection>('PostData').find().toArray();
+	const select_project = project_data.find((pj)=>
+		pj._id.toString() === props.searchParams.project_id
+	)
 	return (
-		<section>
+		<section id={"project"}>
 			<Project_category searchParams={{
 				langs_slecets: props.searchParams.langs_slecets == undefined ?
-					[]:JSON.parse(props.searchParams.langs_slecets),
+					[]:JSON.parse(props.searchParams.langs_slecets) as string[],
 				skills_slects: props.searchParams.skills_slects == undefined ?
-					[]:JSON.parse(props.searchParams.skills_slects)
+					[]:JSON.parse(props.searchParams.skills_slects) as string[]
 			}}></Project_category>
 			<Project_list data={project_data}
-			  selectedLang={props.searchParams.langs_slecets == undefined ?
-				[]:(JSON.parse(props.searchParams.langs_slecets) as string[]).map(s=>s+'Id')} //임시로 Id값을 불러오는 느낌으로
-			selectedSkill={props.searchParams.skills_slects == undefined ?
-				[]:(JSON.parse(props.searchParams.skills_slects) as string[]).map(s=>s+'Id')}></Project_list>
+						  selectedLang={props.searchParams.langs_slecets == undefined ?
+							  [] : (JSON.parse(props.searchParams.langs_slecets) as string[])} //임시로 Id값을 불러오는 느낌으로
+						  selectedSkill={props.searchParams.skills_slects == undefined ?
+							  [] : (JSON.parse(props.searchParams.skills_slects) as string[])}></Project_list>
+			<ProjectViewer project={select_project}></ProjectViewer>
 		</section>
 	)
 }
