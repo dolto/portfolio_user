@@ -123,9 +123,23 @@
     transition: 0.3s;
 }
 .open{
-    height: 100vh;
+    height: 94vh;
     overflow-y: scroll;
 }
 #project_viewer{
     margin: 3rem;
+}
+.project_close{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 6vh;
+    height: 3.5vh;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-top: solid 0.3rem var(--c3);
+    border-left: solid 0.3rem var(--c3);
+    border-right: solid 0.3rem var(--c3);
+    background-color: var(--c4);
+    transition: 0.3s;
 }

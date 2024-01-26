@@ -41,8 +41,9 @@ export default function ProjectViewer (props: Props){
 
     let search = location.search.split('&project')[0];
     return (
-        <Link className={'project_viewer_containor'} href={`project${search}`}>
+        <nav className={'project_viewer_containor'}>
+            {props.project !== undefined?<Link className={'project_close'} href={`project${search}`}>닫기</Link>:null}
             <article id={'project_viewer'}></article>
-        </Link>
+        </nav>
     )
 }
