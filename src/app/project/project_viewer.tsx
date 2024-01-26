@@ -30,6 +30,7 @@ export default function ProjectViewer (props: Props){
                 height: '600px',
                 initialValue: props.project.contents
             });
+            containor.scrollTop = 0;
             // containor.addEventListener('click', close_viewer);
         }
         else{
@@ -42,7 +43,12 @@ export default function ProjectViewer (props: Props){
     let search = location.search.split('&project')[0];
     return (
         <nav className={'project_viewer_containor'}>
-            {props.project !== undefined?<Link className={'project_close'} href={`project${search}`}>닫기</Link>:null}
+            {props.project !== undefined?
+                <Link className={'project_close'} href={`project${search}`}>
+                    <i className="fa-solid fa-trash"></i>
+                </Link>
+                :
+                null}
             <article id={'project_viewer'}></article>
         </nav>
     )
