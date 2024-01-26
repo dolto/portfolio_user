@@ -28,7 +28,8 @@ export default function ProjectViewer (props: Props){
             const viewer_setter = new Viewer({
                 el: document.querySelector('#project_viewer'),
                 height: '600px',
-                initialValue: props.project.contents
+                initialValue: props.project.contents,
+                
             });
             containor.scrollTop = 0;
             // containor.addEventListener('click', close_viewer);

@@ -45,3 +45,10 @@
     height: 2rem;
     font-size: 1.25rem;
 }
+.toastui-editor-contents p {
+    font-size: 1.1rem !important;
+}
+.toastui-editor-contents img{
+    max-height: 45rem !important;
+    max-width: 45rem !important;
+}
