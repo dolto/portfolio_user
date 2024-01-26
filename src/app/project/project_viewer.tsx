@@ -28,8 +28,10 @@ export default function ProjectViewer (props: Props){
             const viewer_setter = new Viewer({
                 el: document.querySelector('#project_viewer'),
                 height: '600px',
-                initialValue: props.project.contents
+                initialValue: props.project.contents,
+                
             });
+            containor.scrollTop = 0;
             // containor.addEventListener('click', close_viewer);
         }
         else{
@@ -41,8 +43,14 @@ export default function ProjectViewer (props: Props){
 
     let search = location.search.split('&project')[0];
     return (
-        <Link className={'project_viewer_containor'} href={`project${search}`}>
+        <nav className={'project_viewer_containor'}>
+            {props.project !== undefined?
+                <Link className={'project_close'} href={`project${search}`}>
+                    <i className="fa-solid fa-trash"></i>
+                </Link>
+                :
+                null}
             <article id={'project_viewer'}></article>
-        </Link>
+        </nav>
     )
 }
