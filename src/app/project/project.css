@@ -142,4 +142,5 @@
     border-right: solid 0.3rem var(--c3);
     background-color: var(--c4);
     transition: 0.3s;
+    z-index: 1;
 }
