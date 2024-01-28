@@ -35,5 +35,4 @@ async function Project(props: Prop) {
 		</section>
 	)
 }
-
 export default Project;
