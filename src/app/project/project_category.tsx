@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from 'next/image';
+// import Image from 'next/image';
 import "./project.css";
 import { connectDB } from "../../../Util/MongoDB";
 import { LangCollection, SkillCollection } from "./interface";
@@ -38,7 +38,8 @@ export default async function Project_category(props: Prop){
                   )}&skills_slects=${JSON.stringify(skills_slects)}`} key={lang._id.toString()}>
                       {langs_slecets.includes(lang._id.toString())?
                           <nav className={'project_category_icon project_icon_selected'}>
-                            <Image
+                            <img
+                                loading={'lazy'}
                                 className={'project_category_icon_img'}
                                 src={lang.img}
                                 alt={''}
@@ -46,7 +47,9 @@ export default async function Project_category(props: Prop){
                                 height={300}/>
                           </nav>:
                           <nav className={'project_category_icon'}>
-                              <Image className={'project_category_icon_img'}
+                              <img
+                                  loading={'lazy'}
+                                  className={'project_category_icon_img'}
                                      src={lang.img}
                                      alt={''}
                                      width={300}
@@ -66,7 +69,8 @@ export default async function Project_category(props: Prop){
                   )}`} key={skill._id.toString()}>
                       {skills_slects.includes(skill._id.toString())?
                           <nav className={'project_category_icon project_icon_selected'}>
-                              <Image
+                              <img
+                                  loading={'lazy'}
                                   className={'project_category_icon_img'}
                                   src={skill.img}
                                   alt={''}
@@ -74,7 +78,9 @@ export default async function Project_category(props: Prop){
                                   height={300}/>
                           </nav>:
                           <nav className={'project_category_icon'}>
-                              <Image className={'project_category_icon_img'}
+                              <img
+                                  loading={'lazy'}
+                                  className={'project_category_icon_img'}
                                      src={skill.img}
                                      alt={''}
                                      width={300}
