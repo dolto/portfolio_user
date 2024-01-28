@@ -58,9 +58,9 @@ export default async function Project_list(props: Props) {
                         <hr className={'project_element_hr'}/>
                         <nav className={'project_category'}>
                             {pj.lang_id.map(c =>
-                                <span>{' | ' + (langs_data.find(l => l._id.toString() === c) as LangCollection).name+' | '}</span> //이건 id에서 이름을 구하는 식으로 바꿔야함
+                                <span key={c}>{' | ' + (langs_data.find(l => l._id.toString() === c) as LangCollection).name+' | '}</span> //이건 id에서 이름을 구하는 식으로 바꿔야함
                             )}<br/>{pj.skill_id.map(c =>
-                            <span>{' | ' + (skill_data.find(s => s._id.toString() === c) as SkillCollection).name+' | '}</span> //이건 id에서 이름을 구하는 식으로 바꿔야함
+                            <span key={c}>{' | ' + (skill_data.find(s => s._id.toString() === c) as SkillCollection).name+' | '}</span> //이건 id에서 이름을 구하는 식으로 바꿔야함
                         )}
                         </nav>
                     </article>

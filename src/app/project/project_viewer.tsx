@@ -4,6 +4,7 @@ import { ProjectCollection } from "./interface";
 import "./project.css";
 // import dynamic from "next/dynamic";
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
+// @ts-ignore
 import Viewer from "@toast-ui/editor/dist/toastui-editor-viewer";
 import Link from "next/link";
 
