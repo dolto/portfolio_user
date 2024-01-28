@@ -1,3 +1,8 @@
+#project{
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
 .project_category_selecter{
     display: grid;
     grid-template-columns: 3rem auto 3rem;
@@ -20,6 +25,8 @@
     height: 3rem;
     border: 0.2rem solid var(--c3);
     border-radius: 50%;
+    overflow: clip;
+    cursor:pointer;
 }
 .project_category_icon:hover{
     transition: all 0.3s;
@@ -29,6 +36,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+    overflow: clip;
 }
 
 .project_icon_selected{
@@ -56,6 +64,7 @@
     position: relative;
     width: 28rem;
     height: 18rem;
+    cursor:pointer;
 }
 
 .project_front_img{
@@ -101,4 +110,38 @@
     white-space: nowrap;
     overflow: clip;
     text-overflow: ellipsis;
+}
+
+.project_viewer_containor{
+    position: fixed;
+    width: 100%;
+    height: 1rem;
+    bottom: 0;
+    background-color: var(--c1);
+    border: solid 0.3rem var(--c3);
+    border-radius: 1rem;
+    transition: 0.3s;
+}
+.open{
+    height: 94vh;
+    overflow-y: scroll;
+}
+#project_viewer{
+    margin: 3rem;
+}
+.project_close{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 6vh;
+    height: 3.5vh;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-top: solid 0.3rem var(--c3);
+    border-left: solid 0.3rem var(--c3);
+    border-right: solid 0.3rem var(--c3);
+    background-color: var(--c3);
+    transition: 0.3s;
+    z-index: 1;
+    text-align: center;
 }

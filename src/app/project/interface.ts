@@ -1,16 +1,20 @@
-enum ContentMode{
-    str,img,link
-}
-interface PostContent{
-    mode:ContentMode,
-    content:string
-}
-interface PostCollection {
-    id:string,
-    category: string[],
+import { ObjectId } from "mongodb"
+
+interface ProjectCollection {
+    _id: ObjectId,
+    lang_id: string[],
     skill_id: string[],
     name:string,
-    contents:PostContent[]
+    contents:string,
+    thumbnail: string
 }
-export {ContentMode}
-export type {PostContent, PostCollection }
+interface LangCollection{
+    _id: ObjectId,
+    name: string,
+    img: string
+}
+interface SkillCollection extends LangCollection{
+    description: string,
+    level: number
+}
+export type {ProjectCollection, LangCollection, SkillCollection }

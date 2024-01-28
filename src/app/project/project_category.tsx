@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from 'next/image';
 import "./project.css";
+import { connectDB } from "../../../Util/MongoDB";
+import { LangCollection, SkillCollection } from "./interface";
 
 interface Prop{
     searchParams: {
@@ -10,51 +12,42 @@ interface Prop{
 }
 
 export default async function Project_category(props: Prop){
-    const langsDB: [string, string][] = [
-        ['Java', ''],
-        ['Kotlin', ''],
-        ['Rust', ''],
-    ]; //MongoDB에서 DB가져올 것 일단은 임시
-    const skillsDB: [string, string][] = [
-        ['Spring', ''],
-        ['Spring Boot', ''],
-        ['Bevy', ''],
-    ]; //MongoDB에서 DB가져올 것 일단은 임시
+    const client = await connectDB;
+    const db = client.db('folio');
+    const langsDB = await db.collection<LangCollection>('Lang').find().toArray();
+    const skillDB = await db.collection<SkillCollection>('Skill').find().toArray();
     const langs_slecets : string[] = props.searchParams.langs_slecets;
     const skills_slects : string[] = props.searchParams.skills_slects;
-    const langs: [string,string][] = langs_slecets.length == 0 ? langsDB :
+    const langs = langs_slecets.length == 0 ? langsDB :
         langsDB.filter(
-        db => langs_slecets.includes(db[0])
+        db => langs_slecets.includes(db._id.toString())
     );
-    const skills: [string,string][] = skills_slects.length == 0 ? skillsDB :
-        skillsDB.filter(
-        db => skills_slects.includes(db[0])
+    const skills = skills_slects.length == 0 ? skillDB :
+        skillDB.filter(
+        db => skills_slects.includes(db._id.toString())
     );
-    console.log(props)
     return(
       <article className={"project_category_selecter"}>
           <i className="fas fa-duotone fa-circle-arrow-left fa-3x"></i>
           <nav className={'project_langs'}>
               {langsDB.map(lang =>{
-                  console.log(langs_slecets.includes(lang[0]));
-                  console.log(lang[0]);
                   return( <Link href={`project?langs_slecets=${JSON.stringify(
                       langs_slecets.length == langsDB.length ?
-                          [lang[0]] : langs_slecets.includes(lang[0]) ?
-                              langs_slecets.filter(s => !(lang[0] == s)) : langs_slecets.concat(lang[0])
-                  )}&skills_slects=${JSON.stringify(skills_slects)}`} key={lang[0]}>
-                      {langs_slecets.includes(lang[0])?
+                          [lang._id.toString()] : langs_slecets.includes(lang._id.toString()) ?
+                              langs_slecets.filter(s => !(lang._id.toString() == s)) : langs_slecets.concat(lang._id.toString())
+                  )}&skills_slects=${JSON.stringify(skills_slects)}`} key={lang._id.toString()}>
+                      {langs_slecets.includes(lang._id.toString())?
                           <nav className={'project_category_icon project_icon_selected'}>
                             <Image
                                 className={'project_category_icon_img'}
-                                src={lang[1]}
+                                src={lang.img}
                                 alt={''}
                                 width={300}
                                 height={300}/>
                           </nav>:
                           <nav className={'project_category_icon'}>
                               <Image className={'project_category_icon_img'}
-                                     src={lang[1]}
+                                     src={lang.img}
                                      alt={''}
                                      width={300}
                                      height={300}/>
@@ -65,24 +58,24 @@ export default async function Project_category(props: Prop){
           <i className="fas fa-duotone fa-circle-arrow-right fa-3x"></i>
           <i className="fas fa-duotone fa-circle-arrow-left fa-3x"></i>
           <nav className={'project_skills'}>
-              {skillsDB.map(skill =>
+              {skillDB.map(skill =>
                   <Link href={`project?langs_slecets=${JSON.stringify(langs_slecets)}&skills_slects=${JSON.stringify(
-                      skills_slects.length == skillsDB.length ?
-                          [skill[0]] : skills_slects.includes(skill[0]) ? 
-                              skills_slects.filter(s => !(skill[0] == s)) : skills_slects.concat(skill[0])
-                  )}`} key={skill[0]}>
-                      {skills_slects.includes(skill[0])?
+                      skills_slects.length == skillDB.length ?
+                          [skill._id.toString()] : skills_slects.includes(skill._id.toString()) ? 
+                              skills_slects.filter(s => !(skill._id.toString() == s)) : skills_slects.concat(skill._id.toString())
+                  )}`} key={skill._id.toString()}>
+                      {skills_slects.includes(skill._id.toString())?
                           <nav className={'project_category_icon project_icon_selected'}>
                               <Image
                                   className={'project_category_icon_img'}
-                                  src={skill[1]}
+                                  src={skill.img}
                                   alt={''}
                                   width={300}
                                   height={300}/>
                           </nav>:
                           <nav className={'project_category_icon'}>
                               <Image className={'project_category_icon_img'}
-                                     src={skill[1]}
+                                     src={skill.img}
                                      alt={''}
                                      width={300}
                                      height={300}/>

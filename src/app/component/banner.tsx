@@ -1,10 +1,11 @@
 'use client'
 import "./banner.css"
-import React, {useState} from "react";
+import React from "react";
 
 function Banner({children} : {children:React.ReactNode}){
 	console.log(children.length);
-	let [a, setA] = useState("a");
+	// let a = document.getElementsByClassName("banner-monitor")[0];
+
 
 
 	return (
