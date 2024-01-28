@@ -15,17 +15,20 @@
 .banner-monitor{
     position: relative;
     background: aqua;
-    max-width: 75rem;
-    min-width: 50rem;
+    max-width: 75rem;/*1200px*/
+    min-width: 50rem;/*800px*/
     width: 75%;
     height: 30rem;
     overflow: hidden;
+    transition: 1s;
 }
 .banner-container{
     display: flex;
+    height: 100%;
 }
 .banner-container>*{
-    width: 1000px;
+    width: 100%;
+    flex-shrink: 0;
     height: 100%;
 }
 
