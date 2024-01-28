@@ -1,5 +1,5 @@
 import {LangCollection, ProjectCollection, SkillCollection} from './interface';
-import Image from 'next/image';
+// import Image from 'next/image';
 import './project.css';
 import { connectDB } from '../../../Util/MongoDB';
 import Link from 'next/link';
@@ -46,7 +46,8 @@ export default async function Project_list(props: Props) {
                               href={`project?langs_slecets=${
                                   JSON.stringify(props.selectedLang)}&skills_slects=${JSON.stringify(props.selectedSkill)
                               }&project_id=${pj._id.toString()}`}>
-                    <Image alt={'사진이 없습니다.'}
+                    <img loading="lazy"
+                        alt={'사진이 없습니다.'}
                            className={'project_front_img'}
                            src={frontImg}
                            width={720}
