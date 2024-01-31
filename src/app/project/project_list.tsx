@@ -7,7 +7,8 @@ import Link from 'next/link';
 interface Props{
     data: ProjectCollection[],
     selectedLang: string[],
-    selectedSkill: string[]
+    selectedSkill: string[],
+    is_Blog: boolean
 }
 export default async function Project_list(props: Props) {
     const data = props.selectedSkill.length + props.selectedLang.length == 0 ?
@@ -43,7 +44,7 @@ export default async function Project_list(props: Props) {
                 const frontImg = pj.thumbnail;
                 return (<Link className={'project_element'}
                               key={pj._id.toString()}
-                              href={`project?langs_slecets=${
+                              href={`project?is_blog=${!props.is_Blog}&langs_slecets=${
                                   JSON.stringify(props.selectedLang)}&skills_slects=${JSON.stringify(props.selectedSkill)
                               }&project_id=${pj._id.toString()}`}>
                     <img loading="lazy"
