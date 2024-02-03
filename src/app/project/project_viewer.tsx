@@ -13,7 +13,7 @@ import Link from "next/link";
 // });
 
 interface Props {
-    project: ProjectCollection | undefined
+    project: ProjectCollection | undefined,
 }
 // const close_viewer = (e:Event) => {
 //     const con = e.currentTarget as HTMLElement;

@@ -51,6 +51,29 @@
 .fa-circle-arrow-right, .fa-circle-arrow-left{
     color: var(--c3);
 }
+.blog_and_project{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.link_blog{
+    text-align: right;
+}
+.link_project, .link_blog{
+    padding: 1rem;
+    background-color: var(--c2);
+    transition: 0.3s;
+}
+.link_project:hover, .link_blog:hover{
+    background-color: var(--c4);
+    transition: 0.3s;
+}
+.blog_checked{
+    background-color: var(--c4);
+}
 .project_list_container {
     display:flex;
     margin: 4rem 12.5rem;
