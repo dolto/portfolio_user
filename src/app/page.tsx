@@ -1,10 +1,10 @@
-import Banner from "@/app/component/banner";
-import BannerList from "@/app/component/BannerList";
+import Banner from "@/component/Banner/Banner";
+import BannerList from "@/component/Banner/BannerList";
 import React from "react";
 
 
 export default function Home() {
-    let a = [1,2,3];
+    let a = [1,2,3,4];
     return (
         <main>
             <section className="banner">
@@ -12,7 +12,7 @@ export default function Home() {
                     {
                         a.map((value, index, array) => {
                             return (
-                                <BannerList key={index} props={value}></BannerList>
+                                <BannerList key={index+value} value={value} index={index}></BannerList>
                             )
                         })
                     }
