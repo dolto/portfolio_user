@@ -23,8 +23,13 @@ async function Project(props: Prop) {
 		.find().toArray() :
 		await db.collection<ProjectCollection>('BlogData')
 		.find().toArray();
+	post_data.map(post => {
+		post._id = post._id.toString();
+		return post;
+	})
+	
 	const select_project = post_data.find((pj)=>
-		pj._id.toString() === props.searchParams.project_id
+		pj._id === props.searchParams.project_id
 	)
 
 	return (
