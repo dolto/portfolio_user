@@ -8,10 +8,6 @@ import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import Viewer from "@toast-ui/editor/dist/toastui-editor-viewer";
 import Link from "next/link";
 
-// const Viewer = dynamic(()=>import('@toast-ui/editor/dist/toastui-editor-viewer'),{
-//     ssr: false
-// });
-
 interface Props {
     project: ProjectCollection | undefined,
 }

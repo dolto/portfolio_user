@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb"
 
 interface ProjectCollection {
-    _id: ObjectId,
+    _id: ObjectId|string,
     lang_id: string[],
     skill_id: string[],
     name:string,
@@ -9,7 +9,7 @@ interface ProjectCollection {
     thumbnail: string
 }
 interface LangCollection{
-    _id: ObjectId,
+    _id: ObjectId|string,
     name: string,
     img: string
 }
