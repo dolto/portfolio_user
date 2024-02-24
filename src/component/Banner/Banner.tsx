@@ -1,30 +1,36 @@
 'use client'
 import "./banner.css"
 import React, {useEffect, useState} from "react";
-import {now} from "mongodb/src/utils";
 
 enum Movement {
 	LEFT,
 	RIGHT
 }
+type BannerProps ={
+	width:string;
+	height:string;
+	children:React.ReactNode;
+}
 
-function Banner({children} : {children:React.ReactNode}){
+function Banner({width, height, children} : BannerProps){
 	const childArray = React.Children.toArray(children);
 	const childCount = childArray.length - 1;
 	const [index, setIndex] = useState(0);
 	useEffect(() => {
 		let container = document.querySelector(".banner-container") as HTMLElement;
-		container.style.transform = `translateX(-${index}00%)`;
+
 		let viewPoint = document.querySelectorAll(".banner-view-point");
 		viewPoint.forEach((v)=>{
 			v.setAttribute('data-active', 'none');
 		})
 		viewPoint[index].setAttribute('data-active', 'active')
+		container.style.transform = `translateX(-${index}00%)`;
 	});
 
 	function bannerSlide(e:React.MouseEvent<HTMLElement>, length:number) {
 		const target = e.target as HTMLElement;
 		const currentTarget = e.currentTarget;
+		const container = currentTarget.querySelector(".banner-container") as HTMLElement;
 		let direction = parseInt(target.getAttribute('data-movement') as string);
 
 		if(target.hasAttribute('data-movement')){
@@ -44,16 +50,18 @@ function Banner({children} : {children:React.ReactNode}){
 	}
 
 	return (
-		<section className="banner-monitor"
+		<div className="banner-monitor" style={{width:width, height:height}}
 				 onClick={e=>bannerSlide(e, childCount)}>
-			<article className="banner-container" data-view={index}>
+			<section className="banner-container" data-view={index}>
 				{children}
-			</article>
+			</section>
 
-			<button className="banner-side banner-move-left" data-movement={Movement.LEFT}></button>
-			<button className="banner-side banner-move-right" data-movement={Movement.RIGHT}></button>
+			<aside>
+				<button className="banner-side banner-move-left" data-movement={Movement.LEFT}></button>
+				<button className="banner-side banner-move-right" data-movement={Movement.RIGHT}></button>
+			</aside>
 
-			<div className="banner-bottom">
+			<nav className="banner-bottom">
 				{
 					childArray.map((value, index)=>{
 						return (
@@ -61,9 +69,40 @@ function Banner({children} : {children:React.ReactNode}){
 						)
 					})
 				}
-			</div>
-		</section>
+			</nav>
+		</div>
 	)
 }
 
-export default Banner
+type InnerProps = {
+	children:React.ReactNode;
+}
+function BannerList({children}:InnerProps) {
+	useEffect(() => {
+		const item = document.querySelector('.banner-items') as HTMLElement;
+		const container = item.parentElement as HTMLElement;
+	}, []);
+
+	return (
+		<article className={"banner-items"}
+				onClick={(e)=>{
+					const parent = e.currentTarget.parentElement as HTMLElement;
+					// console.log(e.movementX)
+				}}
+				onMouseDown={e => {
+
+				}}
+				onMouseMove={e=>{
+					// console.log(e.movementX)
+				}}
+				onMouseUp={e=>{
+
+				}}
+		>
+			{children}
+		</article>
+	)
+}
+
+
+export {Banner, BannerList};

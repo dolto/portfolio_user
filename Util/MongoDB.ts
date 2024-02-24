@@ -1,5 +1,4 @@
 import {MongoClient} from "mongodb";
-
 const url = process.env.MongoDB_URI as string;
 const options = {useNewUrlParser:true}
 let connectDB:Promise<MongoClient>;

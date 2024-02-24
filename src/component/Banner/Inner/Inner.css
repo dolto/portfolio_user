@@ -1,0 +1,197 @@
+.banner-items h1{
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--c3);
+    font-weight: bold;
+    filter: brightness(120%);
+}
+.banner-items h2{
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--c3);
+    filter: brightness(120%);
+}
+.banner-items{
+    color: var(--c3);
+}
+
+/* Introduction */
+.banner-items:nth-child(1){
+    display: grid;
+    grid-template-columns: auto 1fr ;
+    grid-template-rows: 100%;
+}
+.banner-items:nth-child(1)>aside{
+    position: relative;
+}
+.banner-items:nth-child(1)>aside>img{
+    height: 100%;
+}
+.banner-items:nth-child(1)>aside>.tags{
+    width: 100%;
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+}
+.tags>.tag-items{
+    padding: 1px 2px;
+    background: var(--c1);
+    border-radius: 5px;
+    transition: var(--slideSpeed);
+    z-index: 100;
+}
+.tags>.tag-items:hover{
+    background: var(--c4);
+}
+
+.banner-items:nth-child(1)>.intro-info{
+    flex-grow: 1;
+    padding: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 3rem 3rem 1fr 5rem;
+    row-gap: 0.5rem;
+    align-items: center;
+}
+.intro-greet{
+    height: 100%;
+    padding-right: 2rem;
+    overflow: scroll;
+    word-break: break-all;
+    /*white-space: nowrap;
+    text-overflow: ellipsis;
+    line-clamp: 10;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;*/
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    white-space: pre-line;
+}
+.intro-greet::-webkit-scrollbar{
+    display: none;
+}
+
+.intro-details{
+    height: 100%;
+    display: grid;
+    justify-items: end;
+}
+.intro-details>span{
+    height: 2rem;
+}
+.intro-details>span>a{
+    text-decoration: none;
+    color: var(--c3);
+}
+.intro-details>span>a:hover{
+    color: var(--c4);
+}
+.intro-details>a{
+    width: 10rem;
+    height: 3rem;
+    text-align: center;
+    border-radius: 10px;
+    background: var(--c4);
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.intro-details>a:hover {
+    filter: brightness(120%);
+}
+.intro-details>a:active{
+    background: var(--c3);
+}
+
+/* Growth */
+.banner-items:nth-child(2){
+    display: grid;
+    grid-template-rows: 2.5rem 2fr 2.5rem 1.5fr;
+    padding: 10px 40px;
+}
+.banner-items:nth-child(2) h2{
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner-items:nth-child(2) ul{
+    transition: 0.2s ease;
+}
+.banner-items:nth-child(2) h2:hover:after{
+    content: '이하의 영역은 스크롤이 가능합니다';
+    position: absolute;
+    font-size: 0.5rem;
+    bottom: 0;
+    right: 0;
+}
+.banner-items:nth-child(2) h2:hover + ul{
+    background: var(--c2);
+    border-radius: 5px;
+}
+.banner-items:nth-child(2) li:hover{
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: var(--c2);
+}
+.growth{
+    height: 100%;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.growth::-webkit-scrollbar{
+    display: none;
+}
+.growth>li{
+    display: grid;
+    grid-template-columns: 5rem 5rem 1fr 1.5fr 1fr;
+    grid-template-rows: 2.5rem;
+    border-bottom: 1px solid var(--c2);
+    justify-items: center;
+    align-items: center;
+    transition: 0.2s ease;
+}
+.award{
+    height: 100%;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.award::-webkit-scrollbar{
+    display: none;
+}
+.award>li{
+    display: grid;
+    grid-template-columns: 6.5rem 3fr 1fr 0.75fr;
+    grid-template-rows: 2.5rem;
+    row-gap: 0.5rem;
+    border-bottom: 1px solid var(--c2);
+    justify-items: center;
+    align-items: center;
+    transition: 0.2s ease;
+}
+
+/* Recent Project */
+.banner-items:nth-child(3){
+    padding: 10px 40px;
+}
+.banner-items:nth-child(3) h2{
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

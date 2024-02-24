@@ -1,0 +1,212 @@
+.resume{
+    /*margin: 0 auto;*/
+    --toggleSpeed:0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.resume>details{
+    min-width: calc(50rem + 5vw + 2rem);
+    width: 100%;
+    padding: 0 1rem 0 calc(5vw + 1rem);
+}
+.resume>details:first-child{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: var(--c1);
+}
+.resume>details>section{
+
+}
+.resume>details>*{
+    width: clamp(50rem, 100%, 75rem);
+}
+
+.resume>details>summary{
+    color: var(--c3);
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--toggleSpeed);
+}
+.resume>details[open]>summary{
+    margin-bottom: 20px;
+}
+.resume>details>summary:hover{
+    color: var(--c4);
+}
+.resume>details>summary:hover .resume-toggle>span{
+    background: var(--c4);
+}
+.resume>details>summary::marker{
+    content: '';
+}
+.resume>details>summary>.resume-toggle{
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.resume-toggle>span{
+    position: absolute;
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+    transition: var(--toggleSpeed);
+    background: var(--c3);
+}
+.resume>details[open]>summary>.resume-toggle>span:first-child{
+    transform: rotateZ(90deg);
+}
+
+
+/* ABOUT ME */
+.resume-aboutMe{
+
+}
+.resume-aboutMe>section{
+    display: grid;
+    grid-template-columns: calc(15rem + 10vw) 1fr;
+    grid-template-rows: calc(20rem + 10vw);
+    gap: 10px;
+}
+.resume-aboutMe>section>aside{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.resume-aboutMe>section>aside>img{
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+.resume-aboutMe-info{
+    display: grid;
+    grid-template-rows: 3rem max-content auto;
+    gap: 10px;
+}
+.resume-aboutMe-info>h1{
+    font-size: 1.5rem;
+}
+.resume-aboutMe-info a{
+    color: var(--c3);
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+.resume-aboutMe-info a:hover{
+    color: var(--c4);
+}
+.resume-aboutMe-link{
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-gap: 5px;
+}
+.resume-aboutMe-link>*{
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 5px;
+}
+.resume-aboutMe-link>*{
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 5px;
+}
+.resume-aboutMe-info>p{
+    height: 100%;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    white-space: pre-line;
+}
+.resume-aboutMe-info>p::-webkit-scrollbar{
+    display: none;
+}
+
+/* HISTORY */
+.resume-growth header, .resume-growth li{
+    display: grid;
+    grid-template-columns: 6rem 6rem 1fr 1.5fr 1fr;
+    gap: 10px;
+    align-items: center;
+    height: 3rem;
+    text-align: center;
+}
+.resume-growth li{
+    border-top: 1px solid var(--c2);
+}
+.resume-growth li:last-child{
+    border-top: 1px solid var(--c2);
+    border-bottom: 1px solid var(--c2);
+}
+
+.resume-growth header:hover, .resume-growth li:hover{
+    border-radius: 10px;
+    background: var(--c2);
+}
+.resume-growth header:hover + ul>li:first-child{
+    border-top: 1px solid transparent;
+}
+.resume-growth li:hover + li{
+    border-top: 1px solid transparent;
+}
+
+/* AWARD */
+.resume-award header, .resume-award li{
+    display: grid;
+    grid-template-columns: 8rem 3fr 1fr 0.75fr;
+    gap: 10px;
+    align-items: center;
+    height: 3rem;
+    text-align: center;
+}
+.resume-award li{
+    border-top: 1px solid var(--c2);
+}
+.resume-award li:last-child{
+    border-top: 1px solid var(--c2);
+    border-bottom: 1px solid var(--c2);
+}
+
+.resume-award header:hover, .resume-award li:hover{
+    border-radius: 10px;
+    background: var(--c2);
+}
+.resume-award header:hover + ul>li:first-child{
+    border-top: 1px solid transparent;
+}
+.resume-award li:hover + li{
+    border-top: 1px solid transparent;
+}
+
+/* INTRODUCTION */
+.resume-introduction section {
+    display: grid;
+    gap: 10px;
+}
+.resume-introduction article{
+    display: grid;
+    grid-template-rows: 3rem 1fr;
+}
+.resume-introduction summary {
+    height: 3rem;
+    font-size: 1.5rem;
+}
+.resume-introduction summary::marker{
+    content: '';
+}
+.resume-introduction blockquote{
+    border-left: .5rem solid var(--c1);
+    font-size: 1rem;
+    line-height: 2rem;
+    padding-left: 20px;
+}
+.resume-introduction blockquote>p{
+    text-indent: .5rem;
+    margin-bottom: 10px;
+}

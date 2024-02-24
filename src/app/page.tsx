@@ -1,23 +1,13 @@
-import Banner from "@/component/Banner/Banner";
-import BannerList from "@/component/Banner/BannerList";
 import React from "react";
+import Intro from "@/component/Banner/Inner/Intro";
 
 
-export default function Home() {
-    let a = [1,2,3,4];
+export default async function Home() {
+
+
     return (
         <main>
-            <section className="banner">
-                <Banner>
-                    {
-                        a.map((value, index, array) => {
-                            return (
-                                <BannerList key={index+value} value={value} index={index}></BannerList>
-                            )
-                        })
-                    }
-                </Banner>
-            </section>
+            <Intro/>
 
         </main>
     )

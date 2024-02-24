@@ -12,19 +12,14 @@
 
     --slideSpeed:0.5s ease;
 }
-.banner-container>*:nth-child(2n){
-    background: #497174;
-}
-
 .banner-monitor{
     position: relative;
     background: white;
     max-width: 75rem;/*1200px*/
     min-width: 50rem;/*800px*/
-    width: 75%;
-    height: 30rem;
     transition: 1s;
     overflow: hidden;
+    border-radius: 1rem;
 }
 .banner-container{
     transition: var(--slideSpeed);
@@ -52,6 +47,7 @@
     align-items: center;
     padding: 0;
     transition: 0.3s ease;
+    outline: none;
 }
 .banner-side:hover{
     filter: brightness(125%);
@@ -97,8 +93,7 @@
     justify-content: center;
     align-items: center;
     column-gap: 0.25rem;
-
-
+    outline: none;
 }
 .banner-view-point{
     display: block;
@@ -113,7 +108,6 @@
 }
 .banner-view-point:hover{
     background: var(--c4);
-    /*filter: brightness(200%);*/
 }
 .banner-view-point:active{
     background: var(--c3);
@@ -121,4 +115,9 @@
 
 .banner-view-point[data-active='active']{
     width: 40px;
+}
+
+/* 요소 */
+.banner-items{
+    margin: 0;
 }
