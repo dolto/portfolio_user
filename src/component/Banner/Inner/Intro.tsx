@@ -12,8 +12,8 @@ export default async function Intro() {
 	const db = client.db('folio');
 	const aboutMe = (await db.collection('AboutMe').find().toArray() as WithId<AboutMe>[])[0];
 	const introduction = (await db.collection('Introduction').find({}, {sort:'no'}).toArray()  as WithId<Introduction>[])[0];
-	const growth = (await db.collection('Growth').find().toArray() as WithId<Growth>[]);
-	const award = (await db.collection('Award').find().toArray() as WithId<Award>[]);
+	const growth = (await db.collection('Growth').find().sort({'startDate':-1}).toArray() as WithId<Growth>[]);
+	const award = (await db.collection('Award').find().sort({'date':-1}).toArray() as WithId<Award>[]);
 	return (
 
 		<section className="banner">
@@ -39,7 +39,7 @@ export default async function Intro() {
 					</article>
 				</BannerList>
 				<BannerList>
-					<h2>Growth</h2>
+					<h2>History</h2>
 					<ul className={'growth'}>
 						<li><span>시작일</span><span>종료일</span><span>기관</span><span>상세</span><span>기타</span></li>
 						{

@@ -157,7 +157,7 @@
 }
 .growth>li{
     display: grid;
-    grid-template-columns: 5rem 5rem 1fr 1.5fr 1fr;
+    grid-template-columns: 5rem 5rem 1.5fr 2fr 1fr;
     grid-template-rows: 2.5rem;
     border-bottom: 1px solid var(--c2);
     justify-items: center;
@@ -183,7 +183,13 @@
     align-items: center;
     transition: 0.2s ease;
 }
-
+.award>li>span, .growth>li>span{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
 /* Recent Project */
 .banner-items:nth-child(3){
     padding: 10px 40px;

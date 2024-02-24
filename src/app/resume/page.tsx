@@ -10,8 +10,8 @@ async function Resume() {
 	const client = await connectDB;
 	const db = client.db('folio');
 	const aboutMe = (await db.collection('AboutMe').find().toArray() as WithId<AboutMe>[])[0];
-	const growth = (await db.collection('Growth').find().toArray() as WithId<Growth>[]);
-	const award = (await db.collection('Award').find({},{sort:'startDate'}).toArray() as WithId<Award>[]);
+	const growth = (await db.collection('Growth').find().sort({'startDate': -1}).toArray() as WithId<Growth>[]);
+	const award = (await db.collection('Award').find().sort({'date': -1}).toArray() as WithId<Award>[]);
 	const introduction = (await db.collection('Introduction').find({}, {sort:'no'}).toArray()  as WithId<Introduction>[]);
 
 	return (
