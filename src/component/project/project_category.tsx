@@ -30,7 +30,7 @@ export default async function Project_category(props: Prop){
           <i className="fas fa-duotone fa-circle-arrow-left fa-3x"></i>
           <nav className={'project_langs'}>
               {langsDB.map(lang =>{
-                  return( <Link href={`project?is_blog=${!props.is_Blog}&langs_slecets=${JSON.stringify(
+                  return( <Link href={`?is_blog=${!props.is_Blog}&langs_slecets=${JSON.stringify(
                       langs_slecets.length == langsDB.length ?
                           [lang._id.toString()] : langs_slecets.includes(lang._id.toString()) ?
                               langs_slecets.filter(s => !(lang._id.toString() == s)) : langs_slecets.concat(lang._id.toString())
@@ -61,7 +61,7 @@ export default async function Project_category(props: Prop){
           <i className="fas fa-duotone fa-circle-arrow-left fa-3x"></i>
           <nav className={'project_skills'}>
               {skillDB.map(skill =>
-                  <Link href={`project?is_blog=${!props.is_Blog}&langs_slecets=${JSON.stringify(langs_slecets)}&skills_slects=${JSON.stringify(
+                  <Link href={`?is_blog=${!props.is_Blog}&langs_slecets=${JSON.stringify(langs_slecets)}&skills_slects=${JSON.stringify(
                       skills_slects.length == skillDB.length ?
                           [skill._id.toString()] : skills_slects.includes(skill._id.toString()) ? 
                               skills_slects.filter(s => !(skill._id.toString() == s)) : skills_slects.concat(skill._id.toString())
