@@ -42,7 +42,7 @@ export default function ProjectViewer (props: Props){
     return (
         <nav className={'project_viewer_containor'}>
             {props.project !== undefined?
-                <Link className={'project_close'} href={`project${search}`}>
+                <Link className={'project_close'} href={`${search}`}>
                     <i className="fa-solid fa-trash"></i>
                 </Link>
                 :

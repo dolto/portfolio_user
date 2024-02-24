@@ -14,8 +14,8 @@ export default function ProjectBlog(prop: Props){
     const blog = prop.is_Blog === undefined || prop.is_Blog === 'false';
     return(
         <article className="blog_and_project">
-            <Link className={`link_blog${blog?'':' blog_checked'}`} href={`project${search_blog}`}>Blog</Link>
-            <Link className={`link_project${blog?' blog_checked':''}`} href={`project${search_project}`}>Project</Link>
+            <Link className={`link_blog${blog?'':' blog_checked'}`} href={`${search_blog}`}>Blog</Link>
+            <Link className={`link_project${blog?' blog_checked':''}`} href={`${search_project}`}>Project</Link>
         </article>
     )
 }
