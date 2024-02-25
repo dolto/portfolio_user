@@ -52,8 +52,16 @@ async function Resume() {
 					<ul>{growth.map((v, index, array) => {
 						return (
 							<li key={v._id.toString()}>
-								<span>{v.startDate.getFullYear()}-{v.startDate.getMonth() + 1}</span>
-								<span>{v.endDate.getFullYear()}-{v.endDate.getMonth() + 1}</span>
+								{
+									v.startDate != null ?
+										<span>{v.startDate?.getFullYear()}-{v.startDate?.getMonth() + 1}</span>:
+										<span></span>
+								}
+								{
+									v.endDate != null ?
+										<span>{v.endDate?.getFullYear()}-{v.endDate?.getMonth() + 1}</span>:
+										<span>진행중</span>
+								}
 								<span>{v.location}</span>
 								<span>{v.details}</span>
 								<span>{v.etc}</span>
@@ -73,7 +81,11 @@ async function Resume() {
 					<ul>{award.map((v, i, a) => {
 						return (
 							<li key={v._id.toString()}>
-								<span>{v.date.getFullYear()}-{v.date.getMonth()}-{v.date.getDate()}</span>
+								{
+									v.date != null ?
+										<span>{v.date?.getFullYear()}-{v.date?.getMonth()}-{v.date?.getDate()}</span> :
+										<span></span>
+								}
 								<span>{v.title}</span>
 								<span>{v.location}</span>
 								<span>{v.rank}</span>

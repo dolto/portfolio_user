@@ -20,14 +20,11 @@
 /* Introduction */
 .banner-items:nth-child(1){
     display: grid;
-    grid-template-columns: auto 1fr ;
+    grid-template-columns: minmax(20rem ,1fr) 2fr;
     grid-template-rows: 100%;
 }
 .banner-items:nth-child(1)>aside{
     position: relative;
-}
-.banner-items:nth-child(1)>aside>img{
-    height: 100%;
 }
 .banner-items:nth-child(1)>aside>.tags{
     width: 100%;

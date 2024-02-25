@@ -20,7 +20,7 @@ export default async function Intro() {
 			<Banner width={'75%'} height={'30rem'}>
 				<BannerList>
 					<aside>
-						<img src={aboutMe.img} alt={'none'}/>
+						<Image src={aboutMe.img} alt={'none'} layout="fill"  objectFit={'cover'}/>
 						<div className={'tags'}> {
 							aboutMe.tag.map((v)=>{
 								return <mark key={v} className={'tag-items'}>{v}</mark>
@@ -46,8 +46,16 @@ export default async function Intro() {
 							growth.map((v, index, array) => {
 								return (
 									<li key={v._id.toString()}>
-										<span>{v.startDate.getFullYear()}-{v.startDate.getMonth()+1}</span>
-										<span>{v.endDate.getFullYear()}-{v.endDate.getMonth()+1}</span>
+										{
+											v.startDate != null ?
+												<span>{v.startDate?.getFullYear()}-{v.startDate?.getMonth() + 1}</span>:
+												<span></span>
+										}
+										{
+											v.endDate != null ?
+												<span>{v.endDate?.getFullYear()}-{v.endDate?.getMonth() + 1}</span>:
+												<span>진행중</span>
+										}
 										<span>{v.location}</span>
 										<span>{v.details}</span>
 										<span>{v.etc}</span>
@@ -63,7 +71,7 @@ export default async function Intro() {
 							award.map((v, i, a) => {
 								return (
 									<li key={v._id.toString()}>
-										<span>{v.date.getFullYear()}-{v.date.getMonth()}-{v.date.getDate()}</span>
+										<span>{v.date?.getFullYear()}-{v.date?.getMonth()}-{v.date?.getDate()}</span>
 										<span>{v.title}</span>
 										<span>{v.location}</span>
 										<span>{v.rank}</span>

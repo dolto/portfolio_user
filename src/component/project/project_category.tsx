@@ -58,6 +58,7 @@ export default async function Project_category(props: Prop){
               }
           </nav>
           <i className="fas fa-duotone fa-circle-arrow-right fa-3x"></i>
+          <div className={'category_line'}/>
           <i className="fas fa-duotone fa-circle-arrow-left fa-3x"></i>
           <nav className={'project_skills'}>
               {skillDB.map(skill =>

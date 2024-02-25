@@ -2,10 +2,16 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
 @import "defaultColor.css";
 /*@import url('https://fonts.googleapis.com/css2?family=Jua&family=Roboto:wght@100&display=swap');*/
-/**{*/
-/*    font-family: "Jua", sans-serif;*/
-/*    font-style: normal;*/
-/*}*/
+@font-face {
+    font-family: 'seolleimcool-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/seolleimcool-SemiBold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: "seolleimcool-SemiBold", sans-serif;
+    font-style: normal;
+}
 .main-header{
     display: grid;
     grid-template-columns: 15rem 0.5rem 1fr;
@@ -56,4 +62,7 @@
 .toastui-editor-contents img{
     max-height: 45rem !important;
     max-width: 45rem !important;
+}
+main{
+    min-width: 50rem;/*800px*/
 }

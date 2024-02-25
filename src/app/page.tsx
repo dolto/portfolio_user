@@ -8,7 +8,6 @@ export default async function Home(props: any) {
     return (
         <main>
             <Intro/>
-
             <Project searchParams={props.searchParams}/>
         </main>
     )

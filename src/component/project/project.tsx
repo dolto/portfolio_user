@@ -34,14 +34,14 @@ async function Project(props: Prop) {
 
 	return (
 		<section id={"project"}>
-			<Project_category 
+			<ProjectBlog is_Blog={props.searchParams.is_blog}></ProjectBlog>
+			<Project_category
 				langs_slecets= {props.searchParams.langs_slecets == undefined ?
 					[]:JSON.parse(props.searchParams.langs_slecets) as string[]}
 				skills_slects= {props.searchParams.skills_slects == undefined ?
 					[]:JSON.parse(props.searchParams.skills_slects) as string[]}
 					is_Blog={props.searchParams.is_blog === undefined|| props.searchParams.is_blog === 'false'}
 			></Project_category>
-			<ProjectBlog is_Blog={props.searchParams.is_blog}></ProjectBlog>
 			<Project_list data={post_data}
 						  selectedLang={props.searchParams.langs_slecets == undefined ?
 							  [] : (JSON.parse(props.searchParams.langs_slecets) as string[])} //임시로 Id값을 불러오는 느낌으로
