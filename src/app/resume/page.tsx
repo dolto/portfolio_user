@@ -49,7 +49,7 @@ async function Resume() {
 					<header>
 						<span>시작일</span><span>종료일</span><span>기관</span><span>상세</span><span>기타</span>
 					</header>
-					<ul>{growth.map((v, index, array) => {
+					<ul>{growth?.map((v, index, array) => {
 						return (
 							<li key={v._id.toString()}>
 								{
@@ -78,7 +78,7 @@ async function Resume() {
 					<header>
 						<span>시작일</span><span>제목</span><span>기관</span><span>수상</span>
 					</header>
-					<ul>{award.map((v, i, a) => {
+					<ul>{award?.map((v, i, a) => {
 						return (
 							<li key={v._id.toString()}>
 								{
