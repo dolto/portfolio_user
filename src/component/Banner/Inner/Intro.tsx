@@ -110,7 +110,7 @@ export default async function Intro() {
 									recentLang?.map((v) => {
 										return (
 											<span key={v._id.toString()} className={'recent-item'}>
-											<Image src={v.img} alt={v.name} layout={'fill'} objectFit={'cover'}></Image>
+											<Image src={v.img} alt={v.name} width={250} height={250} objectFit={'cover'}></Image>
 										</span>
 										)
 									})}
@@ -122,7 +122,7 @@ export default async function Intro() {
 									recentSkill?.map((v) => {
 										return (
 											<span key={v._id.toString()} className={'recent-item'}>
-											<Image src={v.img} alt={v.name} layout={'fill'} objectFit={'cover'}
+											<Image src={v.img} alt={v.name} width={250} height={250} objectFit={'cover'}
 												   title={v.name}></Image>
 										</span>
 										)
