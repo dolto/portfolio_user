@@ -91,7 +91,7 @@
 .intro-details>span>a:hover{
     color: var(--c4);
 }
-.intro-details>a{
+.intro-link{
     width: 10rem;
     height: 3rem;
     text-align: center;
@@ -104,10 +104,10 @@
     justify-content: center;
     align-items: center;
 }
-.intro-details>a:hover {
+.intro-link:hover {
     filter: brightness(120%);
 }
-.intro-details>a:active{
+.intro-link:active{
     background: var(--c3);
 }
 
@@ -187,14 +187,101 @@
     text-overflow: ellipsis;
     word-break: break-all;
 }
+
 /* Recent Project */
 .banner-items:nth-child(3){
-    padding: 10px 40px;
+    display: grid;
+    grid-template-rows: 2.5rem 1fr;
+    padding: 10px 10px 10px 40px;
+    gap: 10px;
 }
 .banner-items:nth-child(3) h2{
     font-weight: bold;
-    position: relative;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+}
+.recent{
+    display: grid;
+    grid-template-columns: 25rem 1fr;
+    gap: 10px;
+    justify-items: center;
+}
+.recent>aside{
+    position: relative;
+    width: 100%;
+    height: 22.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.recent>aside>div{
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.recent>aside img{
+    position: relative !important;
+    height: auto !important;
+}
+.recent>aside>h3{
+    position: absolute;
+    width: 80%;
+    height: 25%;
+    background: var(--c1);
+    bottom: -12.5%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    z-index: 1;
+}
+.recent-details{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.recent-details>h3{
+    font-size: 1.5rem;
+}
+.recent-details h4{
+    margin-bottom: 5px;
+    font-size: 1.125rem;
+}
+.recent-details h4:before{
+    content: '-';
+    padding-right: 5px;
+}
+.recent-icons{
+    display: flex;
+}
+.recent-icons>span{
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.recent-item>img{
+    position: static !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    overflow: clip;
+}
+.recent-etc{
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
 }

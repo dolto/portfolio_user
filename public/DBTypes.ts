@@ -35,5 +35,30 @@ type Award = {
 	rank:string;
 	_class:string;
 }
+type PostData = {
+	_id:ObjectId;
+	name:string;
+	thumbnail:string;
+	contents:string;
+	lang_id:string[];
+	skill_id:string[];
+	write_day:Date;
+	update_day:Date;
+	_class:string;
+}
+type Skill = {
+	_id:ObjectId;
+	name:string;
+	description:string;
+	level:number;
+	img:string;
+	_class:string;
+}
+type Lang = {
+	_id:ObjectId;
+	name:string;
+	img:string;
+	_class:string;
+}
 
-export type {AboutMe, Growth, Introduction, Award}
+export type {AboutMe, Growth, Introduction, Award, PostData, Skill, Lang}

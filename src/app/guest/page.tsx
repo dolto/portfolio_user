@@ -1,7 +1,7 @@
 function Guest() {
 	return (
 		<section>
-
+			공사중
 		</section>
 	)
 }
