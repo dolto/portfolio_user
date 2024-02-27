@@ -13,7 +13,7 @@
     font-style: normal;
 }
 :root{
-    --minWidth:50rem;
+    --minWidth:48rem;
     --maxWidth:75rem;
 }
 .main-header{
