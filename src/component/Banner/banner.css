@@ -15,8 +15,8 @@
 .banner-monitor{
     position: relative;
     background: white;
-    max-width: 75rem;/*1200px*/
-    min-width: 768px;/*50rem*//*;*//*800px*/
+    max-width: var(--maxWidth);
+    min-width: var(--minWidth);
     transition: 1s;
     overflow: hidden;
     border-radius: 1rem;

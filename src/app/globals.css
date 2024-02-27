@@ -12,6 +12,10 @@
     font-family: "seolleimcool-SemiBold", sans-serif;
     font-style: normal;
 }
+:root{
+    --minWidth:75rem;
+    --maxWidth:48rem;
+}
 .main-header{
     display: grid;
     grid-template-columns: 15rem 0.5rem 1fr;

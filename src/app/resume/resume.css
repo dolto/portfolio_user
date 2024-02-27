@@ -8,7 +8,7 @@
     color: var(--c3);
 }
 .resume>details{
-    min-width: calc(50rem + 5vw + 2rem);
+    min-width: calc(var(--minWidth) + 5vw + 2rem);
     width: 100%;
     padding: 0 1rem 0 calc(5vw + 1rem);
 }
@@ -16,7 +16,7 @@
 
 }
 .resume>details>*{
-    width: clamp(50rem, 100%, 75rem);
+    width: clamp(var(--minWidth), 100%, var(--maxWidth));
 }
 
 .resume>details>summary{
