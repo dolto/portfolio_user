@@ -16,7 +16,7 @@
     position: relative;
     background: white;
     max-width: 75rem;/*1200px*/
-    min-width: 50rem;/*800px*/
+    min-width: 768px;/*50rem*//*;*//*800px*/
     transition: 1s;
     overflow: hidden;
     border-radius: 1rem;
