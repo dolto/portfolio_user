@@ -12,11 +12,6 @@
     width: 100%;
     padding: 0 1rem 0 calc(5vw + 1rem);
 }
-.resume>details:first-child{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background: var(--c1);
-}
 .resume>details>section{
 
 }
@@ -31,6 +26,7 @@
     justify-content: space-between;
     align-items: center;
     transition: var(--toggleSpeed);
+    outline: none;
 }
 .resume>details[open]>summary{
     margin-bottom: 20px;
@@ -72,8 +68,12 @@
 
 
 /* ABOUT ME */
+.resume-aboutMe[open]{
+    background: var(--c1);
+    padding-bottom: 10px !important;
+}
 .resume-aboutMe{
-    color: var(--c3);
+    padding-top: 10px !important;
 }
 .resume-aboutMe>section{
     display: grid;
