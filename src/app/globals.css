@@ -13,8 +13,8 @@
     font-style: normal;
 }
 :root{
-    --minWidth:75rem;
-    --maxWidth:48rem;
+    --minWidth:50rem;
+    --maxWidth:75rem;
 }
 .main-header{
     display: grid;
