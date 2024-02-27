@@ -5,6 +5,7 @@
     flex-direction: column;
     gap: 1rem;
     margin-bottom: 5rem;
+    color: var(--c3);
 }
 .resume>details{
     min-width: calc(50rem + 5vw + 2rem);
@@ -33,9 +34,14 @@
 }
 .resume>details[open]>summary{
     margin-bottom: 20px;
+    color: var(--c4);
+}
+.resume>details[open]>summary>.resume-toggle>span{
+    background: var(--c4);
 }
 .resume>details>summary:hover{
     color: var(--c4);
+    filter: brightness(120%);
 }
 .resume>details>summary:hover .resume-toggle>span{
     background: var(--c4);
@@ -56,6 +62,7 @@
     width: 100%;
     height: 0.5rem;
     border-radius: 0.5rem;
+    filter: brightness(120%);
     transition: var(--toggleSpeed);
     background: var(--c3);
 }
@@ -199,11 +206,15 @@
     grid-template-rows: auto 1fr;
 }
 .resume-introduction details>summary {
-    /*height: 3rem;*/
     font-size: 1.5rem;
 }
 .resume-introduction details>summary::marker{
     content: '';
+}
+.resume-introduction details>summary:hover{
+    transition: 0.3s ease;
+    color: var(--c4);
+    filter: brightness(120%);
 }
 .resume-introduction blockquote{
     border-left: .5rem solid var(--c1);
