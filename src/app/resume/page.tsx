@@ -35,7 +35,7 @@ async function Resume() {
 											<span><a href={v[1]}>{v[1]}</a></span>
 										</>
 									)
-								})}
+							})}
 						</section>
 						<blockquote>{introduction.shift()?.content.split('\r\n').map((value, index) => {
 							return <p key={index}>{value}</p>

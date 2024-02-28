@@ -43,6 +43,7 @@
     border-radius: 5px;
     transition: var(--slideSpeed);
     z-index: 100;
+    color: var(--c3);
 }
 .tags>.tag-items:hover{
     background: var(--c4);
