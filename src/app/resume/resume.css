@@ -218,7 +218,6 @@
 }
 .resume-introduction blockquote{
     border-left: .5rem solid var(--c1);
-    font-size: 1rem;
     line-height: 2rem;
     padding: 5px 20px;
 }

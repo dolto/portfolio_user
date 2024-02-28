@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Link from "next/link";
 import React from "react";
+import Head from "next/head";
 export const metadata: Metadata = {
     title: 'portfolio',
     description: '',
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
 function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
+        <head>
+            <meta name="viewport" content="user-scalable=0;"/>
+        </head>
         <body>
         <header className="main-header">
             <h1><Link href="/">주인장 정보</Link></h1>
