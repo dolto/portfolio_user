@@ -42,7 +42,7 @@ export default async function Intro() {
 						<h1>Introduction</h1>
 						<h2>{aboutMe.name}({aboutMe.eng_name})</h2>
 						<p className={'intro-greet'}>{introduction?.content.split('\r\n').map((value, index)=>{
-							return <p key={index}>{value}</p>
+							return <p key={'intro'+index}>{value}</p>
 						})}</p>
 						<div className={'intro-details'}>
 							<span>Email : <a href={`mailto:${aboutMe.email}`}>{aboutMe.email}</a></span>

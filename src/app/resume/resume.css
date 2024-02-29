@@ -42,8 +42,9 @@
 .resume>details>summary:hover .resume-toggle>span{
     background: var(--c4);
 }
-.resume>details>summary::marker{
+.resume>details>summary::marker, .resume>details>summary::-webkit-details-marker {
     content: '';
+    display: none;
 }
 .resume>details>summary>.resume-toggle{
     width: 2rem;
