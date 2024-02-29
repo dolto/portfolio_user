@@ -209,8 +209,9 @@
 .resume-introduction details>summary {
     font-size: 1.5rem;
 }
-.resume-introduction details>summary::marker{
+.resume-introduction details>summary::marker, .resume-introduction details>summary::-webkit-details-marker{
     content: '';
+    display: none;
 }
 .resume-introduction details>summary:hover{
     transition: 0.3s ease;
