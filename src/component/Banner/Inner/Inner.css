@@ -237,7 +237,8 @@
 }
 .recent>aside img{
     position: relative !important;
-    height: auto !important;
+    /*height: auto !important;*/
+    /*object-fit: contain;*/
 }
 .recent>aside>h3{
     position: absolute;
