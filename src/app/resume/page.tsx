@@ -56,7 +56,6 @@ async function Resume() {
 						<span>상세</span>
 						<span>기타</span>
 					</header>
-<<<<<<< HEAD
 					<ul>{growth.map((v, index, array) => {
 						v.startDate = new Date((v.startDate.getTime() + (v.startDate.getTimezoneOffset() * 60 * 1000)+offset));
 						v.endDate = new Date((v.endDate.getTime() + (v.endDate.getTimezoneOffset() * 60 * 1000)+offset));
@@ -77,7 +76,7 @@ async function Resume() {
 								<span>{v.etc}</span>
 							</li>
 						)})}
-=======
+					</ul>
 					<ul>{
 						growth?.map((v) => {
 							return (
@@ -98,7 +97,6 @@ async function Resume() {
 								</li>
 							)
 						})}
->>>>>>> e5bf2e719a60fd84e1bf1f9e50f2088838016fb0
 					</ul>
 				</section>
 			</details>
@@ -113,12 +111,8 @@ async function Resume() {
 						<span>기관</span>
 						<span>수상</span>
 					</header>
-<<<<<<< HEAD
 					<ul>{award.map((v, i, a) => {
 						v.date = new Date((v.date.getTime() + (v.date.getTimezoneOffset() * 60 * 1000)+offset));
-=======
-					<ul>{award?.map((v) => {
->>>>>>> e5bf2e719a60fd84e1bf1f9e50f2088838016fb0
 						return (
 							<li key={v._id.toString()}>
 								{
