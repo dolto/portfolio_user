@@ -58,7 +58,8 @@ async function Resume() {
 					</header>
 					<ul>{growth.map((v, index, array) => {
 						v.startDate = new Date((v.startDate.getTime() + (v.startDate.getTimezoneOffset() * 60 * 1000)+offset));
-						v.endDate = new Date((v.endDate.getTime() + (v.endDate.getTimezoneOffset() * 60 * 1000)+offset));
+						if(v.endDate != null)
+							v.endDate = new Date((v.endDate.getTime() + (v.endDate.getTimezoneOffset() * 60 * 1000)+offset));
 						return (
 							<li key={v._id.toString()}>
 								{
@@ -79,6 +80,9 @@ async function Resume() {
 					</ul>
 					<ul>{
 						growth?.map((v) => {
+						v.startDate = new Date((v.startDate.getTime() + (v.startDate.getTimezoneOffset() * 60 * 1000)+offset));
+						if(v.endDate != null)
+							v.endDate = new Date((v.endDate.getTime() + (v.endDate.getTimezoneOffset() * 60 * 1000)+offset));
 							return (
 								<li key={v._id.toString()}>
 									{
