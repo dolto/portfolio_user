@@ -41,7 +41,9 @@ export default async function Intro() {
 					<article className={'intro-info'}>
 						<h1>Introduction</h1>
 						<h2>{aboutMe.name}({aboutMe.eng_name})</h2>
-						<p className={'intro-greet'}>{introduction.content}</p>
+						<p className={'intro-greet'}>{introduction?.content.split('\r\n').map((value, index)=>{
+							return <p key={'intro'+index}>{value}</p>
+						})}</p>
 						<div className={'intro-details'}>
 							<span>Email : <a href={`mailto:${aboutMe.email}`}>{aboutMe.email}</a></span>
 							<Link className={'intro-link'} href={'/resume'}>Resume</Link>
@@ -110,7 +112,7 @@ export default async function Intro() {
 									recentLang?.map((v) => {
 										return (
 											<span key={v._id.toString()} className={'recent-item'}>
-											<Image src={v.img} alt={v.name} layout={'fill'} objectFit={'cover'}></Image>
+											<Image src={v.img} alt={v.name} width={250} height={250} objectFit={'cover'}></Image>
 										</span>
 										)
 									})}
@@ -122,7 +124,7 @@ export default async function Intro() {
 									recentSkill?.map((v) => {
 										return (
 											<span key={v._id.toString()} className={'recent-item'}>
-											<Image src={v.img} alt={v.name} layout={'fill'} objectFit={'cover'}
+											<Image src={v.img} alt={v.name} width={250} height={250} objectFit={'cover'}
 												   title={v.name}></Image>
 										</span>
 										)

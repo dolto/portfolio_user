@@ -43,6 +43,7 @@
     border-radius: 5px;
     transition: var(--slideSpeed);
     z-index: 100;
+    color: var(--c3);
 }
 .tags>.tag-items:hover{
     background: var(--c4);
@@ -57,23 +58,33 @@
     row-gap: 0.5rem;
     align-items: center;
 }
+.intro-info>h1:hover:after{
+    content: '이하의 영역은 스크롤이 가능합니다';
+    position: absolute;
+    font-size: 0.5rem;
+    bottom: 0;
+    right: 0;
+    transition: 0.3s;
+}
+.intro-info>h1:hover ~ .intro-greet{
+    background: var(--c2);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
 .intro-greet{
+    padding: 2px 2rem 2px 2px;
     height: 100%;
-    padding-right: 2rem;
     overflow: scroll;
-    word-break: break-all;
-    /*white-space: nowrap;
-    text-overflow: ellipsis;
-    line-clamp: 10;
-    -webkit-line-clamp: 10;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;*/
     -ms-overflow-style: none;
     scrollbar-width: none;
-    white-space: pre-line;
 }
 .intro-greet::-webkit-scrollbar{
     display: none;
+}
+.intro-greet>p{
+    text-indent: .5rem;
+    margin-bottom: 10px;
 }
 
 .intro-details{
@@ -210,7 +221,7 @@
 .recent>aside{
     position: relative;
     width: 100%;
-    height: 22.5rem;
+    height: 22.125rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -226,7 +237,8 @@
 }
 .recent>aside img{
     position: relative !important;
-    height: auto !important;
+    /*height: auto !important;*/
+    /*object-fit: contain;*/
 }
 .recent>aside>h3{
     position: absolute;
@@ -277,7 +289,6 @@
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
-    overflow: clip;
 }
 .recent-etc{
     height: 100%;

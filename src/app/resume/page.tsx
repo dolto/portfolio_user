@@ -27,18 +27,20 @@ async function Resume() {
 						<h1>{aboutMe.name}({aboutMe.eng_name})</h1>
 						<section className={'resume-aboutMe-link'}>
 							<span>Email</span>
-							<span><a href={`mailto:${aboutMe.email}`}>{aboutMe.email}</a></span>
+							<span><a href={`mailto:${aboutMe.email}`} title={'메일 보내기'}>{aboutMe.email}</a></span>
 							{
-								Object.entries(aboutMe.link).map((v, i)=>{
-								return(
-									<>
-										<span>{v[0]}</span>
-										<span><a href={v[1]}>{v[1]}</a></span>
-									</>
-								)
+								Object.entries(aboutMe.link).map((v) => {
+									return (
+										<>
+											<span>{v[0]}</span>
+											<span><a href={v[1]}>{v[1]}</a></span>
+										</>
+									)
 							})}
 						</section>
-						<p>{introduction.shift()?.content}</p>
+						<blockquote>{introduction.shift()?.content.split('\r\n').map((value, index) => {
+							return <p key={index}>{value}</p>
+						})}</blockquote>
 					</article>
 				</section>
 			</details>
@@ -48,8 +50,13 @@ async function Resume() {
 				</summary>
 				<section>
 					<header>
-						<span>시작일</span><span>종료일</span><span>기관</span><span>상세</span><span>기타</span>
+						<span>시작일</span>
+						<span>종료일</span>
+						<span>기관</span>
+						<span>상세</span>
+						<span>기타</span>
 					</header>
+<<<<<<< HEAD
 					<ul>{growth.map((v, index, array) => {
 						v.startDate = new Date((v.startDate.getTime() + (v.startDate.getTimezoneOffset() * 60 * 1000)+offset));
 						v.endDate = new Date((v.endDate.getTime() + (v.endDate.getTimezoneOffset() * 60 * 1000)+offset));
@@ -70,6 +77,28 @@ async function Resume() {
 								<span>{v.etc}</span>
 							</li>
 						)})}
+=======
+					<ul>{
+						growth?.map((v) => {
+							return (
+								<li key={v._id.toString()}>
+									{
+										v.startDate != null ?
+											<span>{v.startDate?.getFullYear()}-{v.startDate?.getMonth() + 1}</span>:
+											<span></span>
+									}
+									{
+										v.endDate != null ?
+											<span>{v.endDate?.getFullYear()}-{v.endDate?.getMonth() + 1}</span>:
+											<span>진행중</span>
+									}
+									<span>{v.location}</span>
+									<span>{v.details}</span>
+									<span>{v.etc}</span>
+								</li>
+							)
+						})}
+>>>>>>> e5bf2e719a60fd84e1bf1f9e50f2088838016fb0
 					</ul>
 				</section>
 			</details>
@@ -79,10 +108,17 @@ async function Resume() {
 				</summary>
 				<section>
 					<header>
-						<span>시작일</span><span>제목</span><span>기관</span><span>수상</span>
+						<span>시작일</span>
+						<span>제목</span>
+						<span>기관</span>
+						<span>수상</span>
 					</header>
+<<<<<<< HEAD
 					<ul>{award.map((v, i, a) => {
 						v.date = new Date((v.date.getTime() + (v.date.getTimezoneOffset() * 60 * 1000)+offset));
+=======
+					<ul>{award?.map((v) => {
+>>>>>>> e5bf2e719a60fd84e1bf1f9e50f2088838016fb0
 						return (
 							<li key={v._id.toString()}>
 								{
@@ -102,25 +138,19 @@ async function Resume() {
 				<summary>Introduction
 					<div className={'resume-toggle'}><span></span><span></span></div>
 				</summary>
-				<section>
-					{
-						introduction.map((v, i) => {
-							let a:JSX.Element=<blockquote></blockquote>;
-							v.content.split('\r\n').map((value)=>{
-								let b = <p>{value}</p>
-							})
-							return(
-								<details key={v._id.toString()} open>
-									<summary>{i+1}. {v.field}</summary>
-									<blockquote>
-										{v.content.split('\r\n').map((value, index)=>{
-											return <p key={index}>{value}</p>
-										})}
-									</blockquote>
-								</details>
-							)
-						})
-					}
+				<section>{
+					introduction.map((v, i) => {
+						return(
+							<details key={v._id.toString()} open>
+								<summary>{i+1}. {v.field}</summary>
+								<blockquote>
+									{v.content.split('\r\n').map((value, index)=>{
+										return <p key={index}>{value}</p>
+									})}
+								</blockquote>
+							</details>
+						)
+					})}
 				</section>
 			</details>
 		</main>
