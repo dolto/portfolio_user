@@ -78,30 +78,6 @@ async function Resume() {
 							</li>
 						)})}
 					</ul>
-					<ul>{
-						growth?.map((v) => {
-						v.startDate = new Date((v.startDate.getTime() + (v.startDate.getTimezoneOffset() * 60 * 1000)+offset));
-						if(v.endDate != null)
-							v.endDate = new Date((v.endDate.getTime() + (v.endDate.getTimezoneOffset() * 60 * 1000)+offset));
-							return (
-								<li key={v._id.toString()}>
-									{
-										v.startDate != null ?
-											<span>{v.startDate?.getFullYear()}-{v.startDate?.getMonth() + 1}</span>:
-											<span></span>
-									}
-									{
-										v.endDate != null ?
-											<span>{v.endDate?.getFullYear()}-{v.endDate?.getMonth() + 1}</span>:
-											<span>진행중</span>
-									}
-									<span>{v.location}</span>
-									<span>{v.details}</span>
-									<span>{v.etc}</span>
-								</li>
-							)
-						})}
-					</ul>
 				</section>
 			</details>
 			<details className={'resume-award'} open>
