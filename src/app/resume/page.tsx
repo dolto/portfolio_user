@@ -14,6 +14,7 @@ async function Resume() {
 	const award = (await db.collection('Award').find().sort({'date': -1}).toArray() as WithId<Award>[]);
 	const introduction = (await db.collection('Introduction').find({}, {sort:'no'}).toArray()  as WithId<Introduction>[]);
 
+	const offset = 1000 * 60 * 60 * 9;
 	return (
 		<main className={'resume'}>
 			<details className={'resume-aboutMe'} open>
@@ -50,6 +51,8 @@ async function Resume() {
 						<span>시작일</span><span>종료일</span><span>기관</span><span>상세</span><span>기타</span>
 					</header>
 					<ul>{growth.map((v, index, array) => {
+						v.startDate = new Date((v.startDate.getTime() + (v.startDate.getTimezoneOffset() * 60 * 1000)+offset));
+						v.endDate = new Date((v.endDate.getTime() + (v.endDate.getTimezoneOffset() * 60 * 1000)+offset));
 						return (
 							<li key={v._id.toString()}>
 								{
@@ -79,6 +82,7 @@ async function Resume() {
 						<span>시작일</span><span>제목</span><span>기관</span><span>수상</span>
 					</header>
 					<ul>{award.map((v, i, a) => {
+						v.date = new Date((v.date.getTime() + (v.date.getTimezoneOffset() * 60 * 1000)+offset));
 						return (
 							<li key={v._id.toString()}>
 								{
