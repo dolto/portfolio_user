@@ -26,6 +26,7 @@ export default async function Intro() {
 		await db.collection('Lang').find({_id:{$in:langId}}).toArray() as WithId<Lang>[]
 	)
 
+	const offset = 1000 * 60 * 60 * 9;
 	return (
 		<section className="banner">
 			<Banner width={'75%'} height={'30rem'}>
@@ -56,6 +57,9 @@ export default async function Intro() {
 						<li><span>시작일</span><span>종료일</span><span>기관</span><span>상세</span><span>기타</span></li>
 						{
 							growth.map((v, index, array) => {
+							v.startDate = new Date((v.startDate.getTime() + (v.startDate.getTimezoneOffset() * 60 * 1000)+offset));
+							if(v.endDate != null)
+								v.endDate = new Date((v.endDate.getTime() + (v.endDate.getTimezoneOffset() * 60 * 1000)+offset));
 								return (
 									<li key={v._id.toString()}>
 										{
@@ -81,6 +85,8 @@ export default async function Intro() {
 						<li><span>시작일</span><span>제목</span><span>기관</span><span>수상</span></li>
 						{
 							award.map((v, i, a) => {
+							
+							v.date = new Date((v.date.getTime() + (v.date.getTimezoneOffset() * 60 * 1000)+offset));
 								return (
 									<li key={v._id.toString()}>
 										<span>{v.date?.getFullYear()}-{v.date?.getMonth()}-{v.date?.getDate()}</span>
