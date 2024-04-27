@@ -4,7 +4,10 @@ import {AboutMe, Award, Growth, Introduction} from "../../../public/DBTypes";
 import Image from "next/image";
 import './resume.css'
 import Link from "next/link";
+import {next} from "sucrase/dist/types/parser/tokenizer";
+import {revalidatePath} from "next/cache";
 
+export const dynamic = "force-dynamic";
 
 async function Resume() {
 	const client = await connectDB;

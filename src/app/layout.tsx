@@ -20,7 +20,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
             <div className="main-header-section-line"></div>
             <nav>
                 <Link href={"/resume"}>Resume</Link>
-                <Link href={"/guest"}>GuestBook</Link>
+                {/*<Link href={"/guest"}>GuestBook</Link>*/}
             </nav>
         </header>
         {children}
